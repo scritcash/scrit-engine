@@ -1,0 +1,19 @@
+- [x] Blind signature algorithm
+- [x] Blinding parameters serialization and encryption
+- [x] Spendbook
+- [x] Key directory: Lookup, Verification
+	- [ ] Publishing
+- [ ] SpendControl
+- [ ] BlindParam Source
+- [ ] Issue
+	- [ ] Create template
+	- [ ] Sign template
+- [ ] DBC Verification
+- [ ] Spend
+- [ ] Reissue
+- [ ] Reissue-Majority
+	- [ ] Signature counting
+- [ ] Client-Server messages and encryption
+
+
+ed25519.Pubkey -> URL

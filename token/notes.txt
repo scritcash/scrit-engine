@@ -1,0 +1,49 @@
+
+Proof of transaction:
+
+token1, hash(Operation), ownerSignature
+....
+tokenN, hash(Operation), ownerSignature
+
+
+Operation(
+	hash(token1)
+	....
+	hash(tokenN)
+	amount blindparam blindrequest
+	....
+)
+sigs(
+	token1:[]sigs,
+	...
+	tokenN:[]sigs
+)
+
+Go through transaction per known issuer:
+Signatures:
+	- Lookup in keydir
+	- If match, only use that signature
+	- If no match, use full list
+Output Params:
+	- Request per issuer
+OwnerSignature:
+	- Request private key from key factory
+
+
+Token:
+
+- 32 byte random
+- 1 byte type parameter
+- type 0x00:
+	- nothing
+- type 0x01:
+	- 32 byte public key ed25519
+- type 0x02:
+	- 32 byte public key ed25519
+	- 8 byte unixtime
+	- 32 byte public key ed25519
+- SerializedSignature
+	- pubkey
+	- suite
+	- s skalar
+	- r point
