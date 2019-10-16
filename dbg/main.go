@@ -32,7 +32,7 @@ func (s testKeyManager) Lookup(keyID uint64) (key *[types.KeySize]byte) {
 func main() {
 	options := &issuer.IssuerOptions{
 		KnownIssuers:  nil,
-		BlindSuite:    types.Secpk256(),
+		BlindSuite:    types.Nist256(),
 		ValidDuration: 1000,
 		KeyManager:    new(testKeyManager),
 		KeyPublisher:  new(testKeyPublisher),
@@ -41,9 +41,9 @@ func main() {
 	if err != nil {
 		panic(err)
 	}
-	token, err := issuer.Issue(keydir.Currency("EUR"), keydir.Value(10))
+	token, err := issuer.Issue(nil, keydir.Currency("EUR"), keydir.Value(10))
 	if err != nil {
-		fmt.Println("Issue: %s", err)
+		fmt.Printf("Issue: %s\n", err)
 	}
 	_ = token
 }
