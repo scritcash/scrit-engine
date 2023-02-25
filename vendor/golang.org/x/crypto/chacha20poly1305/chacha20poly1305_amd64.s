@@ -4,7 +4,8 @@
 
 // This file was originally from https://golang.org/cl/24717 by Vlad Krasnov of CloudFlare.
 
-// +build go1.7,amd64,!gccgo,!appengine
+//go:build gc && !purego
+// +build gc,!purego
 
 #include "textflag.h"
 // General register allocation
